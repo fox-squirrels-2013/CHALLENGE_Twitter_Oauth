@@ -46,3 +46,8 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+Twitter.configure do |config|
+  config.consumer_key = "UIQs6aKF3tIjaSoKwXTC4w"
+  config.consumer_secret = "N6lssrMmHRKKtVapiXDlT43VtfAyBJn31HoUxsqAqkA"
+end
