@@ -1,4 +1,4 @@
-a# TWITTER OAUTH
+# TWITTER OAUTH
 
 1. [Learning Objectives](#learning-objectives)
 1. [Summary](#summary)
