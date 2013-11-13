@@ -15,6 +15,7 @@ def request_token
 
     # the `oauth_consumer` method is defined above
     session[:request_token] = oauth_consumer.get_request_token(
+      # callback url
       :oauth_callback => "http://#{host_and_port}/auth"
     )
   end
