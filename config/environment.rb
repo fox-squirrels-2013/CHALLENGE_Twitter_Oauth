@@ -22,9 +22,29 @@ require 'erb'
 
 require 'oauth'
 require 'twitter'
+require 'yaml'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+
+env_config = YAML.load_file(APP_ROOT.join('config', 'twitter.yml'))
+
+env_config.each do |key, value|
+  ENV[key] = value
+end
+
+Twitter.configure do |config|
+  config.consumer_key = ENV['TWITTER_KEY']
+  config.consumer_secret = ENV['TWITTER_SECRET']
+  config.oauth_token = ENV['OAUTH_TOKEN']
+  config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
+end
+
+# p ENV['TWITTER_KEY']
+# p ENV['TWITTER_SECRET']
+# p ENV['OAUTH_TOKEN']
+# p ENV['OAUTH_TOKEN_SECRET']
+# p ENV
 
 APP_NAME = APP_ROOT.basename.to_s
 

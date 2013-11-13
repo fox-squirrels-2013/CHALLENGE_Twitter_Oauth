@@ -19,7 +19,15 @@ get '/auth' do
   session.delete(:request_token)
 
   # at this point in the code is where you'll need to create your user account and store the access token
+  p "*" * 50
+  p @params
+  p "&" * 50
+  p @params[:blahblahblah]
 
+  User.create! username: @access_token.params[:screen_name], oauth_token: @access_token.token, oauth_secret: @access_token.secret
+
+
+p @screen_name
   erb :index
-  
+
 end
