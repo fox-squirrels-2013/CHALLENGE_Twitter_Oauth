@@ -17,8 +17,24 @@
         <button><a href="/sign_out">Sign Out</a></button>
       </p>
     </div>
+    <div>
+      <form action="/statuses/update" method="post">
+        <input type="text" name="tweet" placeholder="Your tweet">
+        <input type="submit" value="Tweet!">
+      </form>
+    </div>
+    <div>
+      <h3>Recent Tweets:</h3>
+
+      <% if session[:user] %>
+        <% @timeline do |tweet| %>
+          <%= tweet[:text] %>
+        <% end %>
+      <% end %>
+
+    </div>
   <% else %>
     <button><a href="/sign_in">Sign In with Twitter</a></button>
   <% end %>
-  
+
 </div>
