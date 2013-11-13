@@ -1,6 +1,7 @@
 .bundle
 .DS_Store
 config/database.yml
+config/secret.yaml
 db/*.sqlite3
 db/*.sqlite
 db/*.sqlite3-journal
