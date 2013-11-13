@@ -47,8 +47,6 @@ end
 post '/member' do
 
   Twitter.configure do |config|
-    config.consumer_key = '9TDviFo0TFWqPwcBQ3O0tA'
-    config.consumer_secret = 'H3Jikhp8lrHgVw7Y78njB0ZFLordTjijdXSJknZoZg'
     config.oauth_token = session[:user_data][:oauth_token]
     config.oauth_token_secret = session[:user_data][:oauth_secret]
   end
