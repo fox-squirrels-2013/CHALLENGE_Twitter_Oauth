@@ -3,7 +3,7 @@
 
   <% if @user %>
     <div>
-      <form id='tweet' action='/tweet' name='tweet' method='post'>
+      <form id='tweet' action='/tweet/<%= "#{@user.id}" %>' name='tweet' method='post'>
         <input type='textarea' name='content'>
         <input type='submit' value="Tweet away!">
       </form>
