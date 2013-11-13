@@ -28,6 +28,13 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
+Twitter.configure do |config|
+  config.consumer_key = 'XBXSiefx3y6jnBaI1Cdtew'
+  config.consumer_secret = 'v5kpCrSfAtrprtbzlrlRp5PPcZHNGBRk8QVoaMC0yg'
+  # config.oauth_token = '1370464358-DlMjrrAzCBgNGZ16lxWli1xSkjBZoCo3XzyIc2k'
+  # config.oauth_token_secret = '6csN7RWoCnXxUPbZ2j1OisiO6dtJKvgUHwbo2xDmVZjIx'
+end
+
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
   # Since this is not the case for us, we set it manually.
@@ -46,3 +53,4 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
