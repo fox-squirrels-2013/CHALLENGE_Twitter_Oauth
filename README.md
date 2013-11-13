@@ -1,4 +1,4 @@
-# TWITTER OAUTH
+a# TWITTER OAUTH
 
 1. [Learning Objectives](#learning-objectives)
 1. [Summary](#summary)
@@ -6,21 +6,21 @@
 1. [Helpful Resources](#helpful-resources)
 
 ## Learning Objectives
-1. Understanding the Oauth protocol. 
+1. Understanding the Oauth protocol.
 1. Using the Oauth protocol to interact with an API (twitter)
 
 ## Summary
 
 Building on [Tweet Now! 1: Single User](/challenges/313), let's add support for logging in with Twitter.  This will be our first application that uses OAuth for authentication.
 
-Create an application that allows a user to sign in via Oauth from Twitter and then send a tweet. 
+Create an application that allows a user to sign in via Oauth from Twitter and then send a tweet.
 
 ##Releases
 ### Release 1: Getting Setup.
 
-Fork this repository to get started. The skeleton here has already implemented OAuth. Unless you're feeling incredibly ambitious, you should use it as a starting point for your multi-user Tweet Now! app.  
+Fork this repository to get started. The skeleton here has already implemented OAuth. Unless you're feeling incredibly ambitious, you should use it as a starting point for your multi-user Tweet Now! app.
 
- **BEFORE** you start, spend time reading the 
+ **BEFORE** you start, spend time reading the
  [Twitter OAuth Documentation](https://dev.twitter.com/docs/auth/oauth ) and familiarize yourself with the basics of OAuth version 1.  See if you can relate what you learn to the image below.
 
 ### Configuring Your Environment
@@ -39,13 +39,13 @@ $ export TWITTER_SECRET=<your_twitter_consumer_secret>
 $ shotgun
 ```
 
-Since you are using OAuth, you will also need to set a `callback function` which is the route the application will be directed to after the user is authenticated.  When you are using localhost, this callback function is actually set in the request token (see the helper method in your skeleton), BUT you still need to set something in the callback field when registering your application with Twitter.  As you can read in [this post]( https://dev.twitter.com/discussions/5749) you can actually set this to any valid url and it will be overwritten by the attribute of your request token. 
+Since you are using OAuth, you will also need to set a `callback function` which is the route the application will be directed to after the user is authenticated.  When you are using localhost, this callback function is actually set in the request token (see the helper method in your skeleton), BUT you still need to set something in the callback field when registering your application with Twitter.  As you can read in [this post]( https://dev.twitter.com/discussions/5749) you can actually set this to any valid url and it will be overwritten by the attribute of your request token.
 
 ### Release 2:  Getting It Running Without Code Changes
 
 Unlike your previous Twitter applications, the "access token" and "access token secret" will have to change *depending on what user is currently authenticated*.  This key pair answers the question, "On whose behalf is this application acting?"
 
-Twitter needs to answer both of these questions to make sure that the application is valid and that the application can only do what it has permission to do on behalf of an authenticated user.  
+Twitter needs to answer both of these questions to make sure that the application is valid and that the application can only do what it has permission to do on behalf of an authenticated user.
 
 
 
@@ -82,12 +82,12 @@ end
 We'll want a `User` model, however the user won't have a password.  Instead, the user will be authenticated via OAuth.  With OAuth there's not necessarily a distinction between signing up and logging in &mdash; the first time a user authenticates via Twitter we can create the `User` object. Instead of a password, you'll want to have columns to store her "access token" and "access token secret".
 
 ### Release 4: Tweet on behalf of your user
-Now that you have an authenticated user who has authorized you to use Twitter on their behalf, revisit your "Tweet Now!" app and send some tweets for this user. 
+Now that you have an authenticated user who has authorized you to use Twitter on their behalf, revisit your "Tweet Now!" app and send some tweets for this user.
 
 
 ### Release 5: Deploying Securely to Heroku
 
-**STOP** - Go find your laptop and use it to deploy to Heroku - please (no really please) do not reset the SSH keys on DBC machines. 
+**STOP** - Go find your laptop and use it to deploy to Heroku - please (no really please) do not reset the SSH keys on DBC machines.
 
 We don't want our confidential information (like application keys and secrets) to be stored in git, especially if we're going to push this to a public repository. If we *were* to store them in a public repository, anyone would be able to pretend to be our application. **NOT good.**
 
